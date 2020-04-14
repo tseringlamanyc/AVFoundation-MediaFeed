@@ -60,7 +60,11 @@ extension MediaFeedVC: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mediaCell", for: indexPath) as? MediaCell else {
+            fatalError()
+        }
+        let aMedia = mediaObjects[indexPath.row]
+        cell.configureCell(mediaObject: aMedia)
         return cell
     }
     

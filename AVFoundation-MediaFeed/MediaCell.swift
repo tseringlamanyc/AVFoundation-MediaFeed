@@ -9,5 +9,13 @@
 import UIKit
 
 class MediaCell: UICollectionViewCell {
+
+    @IBOutlet weak var mediaView: UIImageView!
+    
+    public func configureCell(mediaObject: MediaObject) {
+        if let imageData = mediaObject.imageData  {
+            mediaView.image = UIImage(data: imageData)
+        }
+    }
     
 }
