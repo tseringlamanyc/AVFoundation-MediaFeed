@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation // video done on a CALayer
+import AVKit // AVPlayerViewController , video on AVPlayerController
 
 class MediaFeedVC: UIViewController {
     
@@ -90,6 +92,20 @@ extension MediaFeedVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: mediaCV.bounds.width, height: mediaCV.bounds.height * 0.50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let playerVC = AVPlayerViewController() // AVKit
+        
+        let mediaObject = mediaObjects[indexPath.row]
+        
+        guard let videoURL = mediaObject.videoURL else {return}
+        let player = AVPlayer(url: videoURL)
+        playerVC.player = player
+        
+        present(playerVC, animated: true) {
+            player.play() // plays automatically 
+        }
     }
 }
 

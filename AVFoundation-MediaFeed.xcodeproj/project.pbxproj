@@ -16,6 +16,7 @@
 		529CF33E24455F7900553B46 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF33D24455F7900553B46 /* MediaCell.swift */; };
 		529CF34024455FAE00553B46 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF33F24455FAE00553B46 /* HeaderView.swift */; };
 		529CF3422445630A00553B46 /* MediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF3412445630A00553B46 /* MediaObject.swift */; };
+		529CF344244571C300553B46 /* Thumbnail-Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF343244571C300553B46 /* Thumbnail-Image.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		529CF33D24455F7900553B46 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		529CF33F24455FAE00553B46 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		529CF3412445630A00553B46 /* MediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObject.swift; sourceTree = "<group>"; };
+		529CF343244571C300553B46 /* Thumbnail-Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thumbnail-Image.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				52176206244556BB00EB38A7 /* AppDelegate.swift */,
 				52176208244556BB00EB38A7 /* SceneDelegate.swift */,
 				5217620A244556BB00EB38A7 /* MediaFeedVC.swift */,
+				529CF343244571C300553B46 /* Thumbnail-Image.swift */,
 				529CF3412445630A00553B46 /* MediaObject.swift */,
 				529CF33F24455FAE00553B46 /* HeaderView.swift */,
 				5217620C244556BB00EB38A7 /* Main.storyboard */,
@@ -149,6 +152,7 @@
 			files = (
 				529CF34024455FAE00553B46 /* HeaderView.swift in Sources */,
 				529CF3422445630A00553B46 /* MediaObject.swift in Sources */,
+				529CF344244571C300553B46 /* Thumbnail-Image.swift in Sources */,
 				5217620B244556BB00EB38A7 /* MediaFeedVC.swift in Sources */,
 				52176207244556BB00EB38A7 /* AppDelegate.swift in Sources */,
 				529CF33E24455F7900553B46 /* MediaCell.swift in Sources */,
