@@ -13,6 +13,8 @@
 		5217620E244556BB00EB38A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5217620C244556BB00EB38A7 /* Main.storyboard */; };
 		52176210244556BC00EB38A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5217620F244556BC00EB38A7 /* Assets.xcassets */; };
 		52176213244556BC00EB38A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52176211244556BC00EB38A7 /* LaunchScreen.storyboard */; };
+		529CF33E24455F7900553B46 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF33D24455F7900553B46 /* MediaCell.swift */; };
+		529CF34024455FAE00553B46 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF33F24455FAE00553B46 /* HeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		5217620F244556BC00EB38A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52176212244556BC00EB38A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52176214244556BC00EB38A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		529CF33D24455F7900553B46 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
+		529CF33F24455FAE00553B46 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +63,12 @@
 				52176206244556BB00EB38A7 /* AppDelegate.swift */,
 				52176208244556BB00EB38A7 /* SceneDelegate.swift */,
 				5217620A244556BB00EB38A7 /* MediaFeedVC.swift */,
+				529CF33F24455FAE00553B46 /* HeaderView.swift */,
 				5217620C244556BB00EB38A7 /* Main.storyboard */,
 				5217620F244556BC00EB38A7 /* Assets.xcassets */,
 				52176211244556BC00EB38A7 /* LaunchScreen.storyboard */,
 				52176214244556BC00EB38A7 /* Info.plist */,
+				529CF33D24455F7900553B46 /* MediaCell.swift */,
 			);
 			path = "AVFoundation-MediaFeed";
 			sourceTree = "<group>";
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				529CF34024455FAE00553B46 /* HeaderView.swift in Sources */,
 				5217620B244556BB00EB38A7 /* MediaFeedVC.swift in Sources */,
 				52176207244556BB00EB38A7 /* AppDelegate.swift in Sources */,
+				529CF33E24455F7900553B46 /* MediaCell.swift in Sources */,
 				52176209244556BB00EB38A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
