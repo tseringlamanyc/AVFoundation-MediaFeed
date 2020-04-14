@@ -70,7 +70,7 @@ class MediaFeedVC: UIViewController {
             playerLayer.frame = view.bounds   // take up the entire header view
             
             // aspect ratio
-            playerLayer.videoGravity = .resizeAspect
+            playerLayer.videoGravity = .resize
             
             // remove all sublayers from headerview
             view.layer.sublayers?.removeAll()
