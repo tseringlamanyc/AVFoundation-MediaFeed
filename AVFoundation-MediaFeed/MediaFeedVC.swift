@@ -45,13 +45,41 @@ class MediaFeedVC: UIViewController {
     }
     
     @IBAction func videoButtonPressed(_ sender: UIBarButtonItem) {
-        
+        imagePickerController.sourceType = .camera
+        present(imagePickerController, animated: true)
     }
     
     
     @IBAction func photoLibraryPressed(_ sender: UIBarButtonItem) {
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true)
+    }
+    
+    private func playRandomVideo(view: UIView) {
+        // we want all non-nill media objects
+        let videoURLs = mediaObjects.compactMap {$0.videoURL}
+        
+        // get a random video URL
+        if let videoURL = videoURLs.randomElement() {
+            let player = AVPlayer(url: videoURL)
+            
+            // create sublayer (CA Layer)
+            let playerLayer = AVPlayerLayer(player: player)
+            
+            // set its frame
+            playerLayer.frame = view.bounds   // take up the entire header view
+            
+            // aspect ratio
+            playerLayer.videoGravity = .resizeAspect
+            
+            // remove all sublayers from headerview
+            view.layer.sublayers?.removeAll()
+            
+            // add layer to header view
+            view.layer.addSublayer(playerLayer)
+            
+            player.play() // plays video
+        }
     }
     
 }
@@ -74,6 +102,7 @@ extension MediaFeedVC: UICollectionViewDataSource {
         guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerView", for: indexPath) as? HeaderView else {
             fatalError()
         }
+        playRandomVideo(view: headerView)
         return headerView
     }
 }
