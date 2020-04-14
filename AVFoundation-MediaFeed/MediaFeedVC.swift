@@ -14,28 +14,49 @@ class MediaFeedVC: UIViewController {
     @IBOutlet weak var videoButton: UIBarButtonItem!
     @IBOutlet weak var mediaCV: UICollectionView!
     
+    lazy var imagePickerController: UIImagePickerController = {
+        let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) // photos or videos
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        pickerController.mediaTypes = mediaTypes ?? ["kUTTypeImage"]
+        return pickerController
+    }()
+    
+    private var mediaObjects = [MediaObject]() {
+        didSet {
+            mediaCV.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCV()
+        
+        if !UIImagePickerController.isSourceTypeAvailable(.camera) {
+            videoButton.isEnabled = false
+        }
     }
-
+    
     private func configureCV() {
         mediaCV.dataSource = self
         mediaCV.delegate = self
     }
     
     @IBAction func videoButtonPressed(_ sender: UIBarButtonItem) {
+        
     }
     
     
-    @IBAction func photoLibraryPressed(_ sender: Any) {
+    @IBAction func photoLibraryPressed(_ sender: UIBarButtonItem) {
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true)
     }
     
 }
 
 extension MediaFeedVC: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return mediaObjects.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -65,6 +86,32 @@ extension MediaFeedVC: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: mediaCV.bounds.width, height: mediaCV.bounds.height * 0.50)
+    }
+}
+
+extension MediaFeedVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        // Infokey =  mediatype (originalImage, mediaURL)
+        guard let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String else {
+            return
+        }
+        
+        print("mediatype: \(mediaType)")
+        
+        switch mediaType {
+        case "public.image":
+            if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let imageData = originalImage.jpegData(compressionQuality: 1.0) {
+                let mediaObject = MediaObject(imageData: imageData, videoURL: nil, caption: nil)
+                mediaObjects.append(mediaObject)
+            }
+        case "public.movie":
+            break
+        default:
+            break
+        }
+        
+        picker.dismiss(animated: true)
     }
 }
 
