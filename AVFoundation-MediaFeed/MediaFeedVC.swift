@@ -110,7 +110,10 @@ extension MediaFeedVC: UIImagePickerControllerDelegate, UINavigationControllerDe
                 mediaObjects.append(mediaObject)
             }
         case "public.movie":
-            break
+            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+                let mediaObject = MediaObject(imageData: nil, videoURL: mediaURL, caption: nil)
+                mediaObjects.append(mediaObject)
+            }
         default:
             break
         }
