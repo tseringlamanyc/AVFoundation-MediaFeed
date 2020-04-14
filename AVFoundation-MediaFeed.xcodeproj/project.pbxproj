@@ -13,6 +13,7 @@
 		5217620E244556BB00EB38A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5217620C244556BB00EB38A7 /* Main.storyboard */; };
 		52176210244556BC00EB38A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5217620F244556BC00EB38A7 /* Assets.xcassets */; };
 		52176213244556BC00EB38A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52176211244556BC00EB38A7 /* LaunchScreen.storyboard */; };
+		52885EC22446191C007E4A3C /* MediaFeedDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 52885EC02446191C007E4A3C /* MediaFeedDataModel.xcdatamodeld */; };
 		529CF33E24455F7900553B46 /* MediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF33D24455F7900553B46 /* MediaCell.swift */; };
 		529CF34024455FAE00553B46 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF33F24455FAE00553B46 /* HeaderView.swift */; };
 		529CF3422445630A00553B46 /* MediaObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 529CF3412445630A00553B46 /* MediaObject.swift */; };
@@ -28,6 +29,7 @@
 		5217620F244556BC00EB38A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		52176212244556BC00EB38A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		52176214244556BC00EB38A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52885EC12446191C007E4A3C /* MediaFeedDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MediaFeedDataModel.xcdatamodel; sourceTree = "<group>"; };
 		529CF33D24455F7900553B46 /* MediaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCell.swift; sourceTree = "<group>"; };
 		529CF33F24455FAE00553B46 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		529CF3412445630A00553B46 /* MediaObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaObject.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				5217620A244556BB00EB38A7 /* MediaFeedVC.swift */,
 				529CF343244571C300553B46 /* Thumbnail-Image.swift */,
 				529CF3412445630A00553B46 /* MediaObject.swift */,
+				52885EC02446191C007E4A3C /* MediaFeedDataModel.xcdatamodeld */,
 				529CF33F24455FAE00553B46 /* HeaderView.swift */,
 				5217620C244556BB00EB38A7 /* Main.storyboard */,
 				5217620F244556BC00EB38A7 /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 				5217620B244556BB00EB38A7 /* MediaFeedVC.swift in Sources */,
 				52176207244556BB00EB38A7 /* AppDelegate.swift in Sources */,
 				529CF33E24455F7900553B46 /* MediaCell.swift in Sources */,
+				52885EC22446191C007E4A3C /* MediaFeedDataModel.xcdatamodeld in Sources */,
 				52176209244556BB00EB38A7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tseringlama.Instagram-Lab1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexcpaul.ImagePickerp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -327,7 +331,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.tseringlama.Instagram-Lab1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alexcpaul.ImagePickerp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -356,6 +360,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		52885EC02446191C007E4A3C /* MediaFeedDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				52885EC12446191C007E4A3C /* MediaFeedDataModel.xcdatamodel */,
+			);
+			currentVersion = 52885EC12446191C007E4A3C /* MediaFeedDataModel.xcdatamodel */;
+			path = MediaFeedDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 521761FB244556BB00EB38A7 /* Project object */;
 }
