@@ -37,11 +37,19 @@ class MediaFeedVC: UIViewController {
         if !UIImagePickerController.isSourceTypeAvailable(.camera) {
             videoButton.isEnabled = false
         }
+        
+        fetchMediaObjects()
     }
     
     private func configureCV() {
         mediaCV.dataSource = self
         mediaCV.delegate = self
+    }
+    
+    // NSPredicate
+    // NSFetchResultController
+    private func fetchMediaObjects() {
+        mediaObjects = CoreDataManager.shared.fetchMediaObjects()
     }
     
     @IBAction func videoButtonPressed(_ sender: UIBarButtonItem) {
@@ -151,13 +159,13 @@ extension MediaFeedVC: UIImagePickerControllerDelegate, UINavigationControllerDe
         switch mediaType {
         case "public.image":
             if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let imageData = originalImage.jpegData(compressionQuality: 1.0) {
-              //  let mediaObject = CDMediaObject(imageData: imageData, videoURL: nil, caption: nil)
+                //  let mediaObject = CDMediaObject(imageData: imageData, videoURL: nil, caption: nil)
                 let mediaObject = CoreDataManager.shared.createMediaObject(imageData: imageData, videoURL: nil)
                 mediaObjects.append(mediaObject)
             }
         case "public.movie":
             if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL, let image = mediaURL.videoPreviewThumbnail(), let imageData = image.jpegData(compressionQuality: 1.0) {
-        //        let mediaObject = CDMediaObject(imageData: nil, videoURL: mediaURL, caption: nil)
+                //  let mediaObject = CDMediaObject(imageData: nil, videoURL: mediaURL, caption: nil)
                 let mediaObject = CoreDataManager.shared.createMediaObject(imageData: imageData, videoURL: mediaURL)
                 mediaObjects.append(mediaObject)
             }
