@@ -24,7 +24,7 @@ class MediaFeedVC: UIViewController {
         return pickerController
     }()
     
-    private var mediaObjects = [MediaObject]() {
+    private var mediaObjects = [CDMediaObject]() {
         didSet {
             mediaCV.reloadData()
         }
@@ -57,10 +57,10 @@ class MediaFeedVC: UIViewController {
     
     private func playRandomVideo(view: UIView) {
         // we want all non-nill media objects
-        let videoURLs = mediaObjects.compactMap {$0.videoURL}
+        let videoDataObjects = mediaObjects.compactMap {$0.videoData}
         
         // get a random video URL
-        if let videoURL = videoURLs.randomElement() {
+        if let videoObject = videoDataObjects.randomElement(), let videoURL = videoObject.convertToURL() {
             let player = AVPlayer(url: videoURL)
             
             // create sublayer (CA Layer)
@@ -128,7 +128,7 @@ extension MediaFeedVC: UICollectionViewDelegateFlowLayout {
         
         let mediaObject = mediaObjects[indexPath.row]
         
-        guard let videoURL = mediaObject.videoURL else {return}
+        guard let videoURL = mediaObject.videoData?.convertToURL() else {return}
         let player = AVPlayer(url: videoURL)
         playerVC.player = player
         
@@ -151,12 +151,14 @@ extension MediaFeedVC: UIImagePickerControllerDelegate, UINavigationControllerDe
         switch mediaType {
         case "public.image":
             if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage, let imageData = originalImage.jpegData(compressionQuality: 1.0) {
-                let mediaObject = MediaObject(imageData: imageData, videoURL: nil, caption: nil)
+              //  let mediaObject = CDMediaObject(imageData: imageData, videoURL: nil, caption: nil)
+                let mediaObject = CoreDataManager.shared.createMediaObject(imageData: imageData, videoURL: nil)
                 mediaObjects.append(mediaObject)
             }
         case "public.movie":
-            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
-                let mediaObject = MediaObject(imageData: nil, videoURL: mediaURL, caption: nil)
+            if let mediaURL = info[UIImagePickerController.InfoKey.mediaURL] as? URL, let image = mediaURL.videoPreviewThumbnail(), let imageData = image.jpegData(compressionQuality: 1.0) {
+        //        let mediaObject = CDMediaObject(imageData: nil, videoURL: mediaURL, caption: nil)
+                let mediaObject = CoreDataManager.shared.createMediaObject(imageData: imageData, videoURL: mediaURL)
                 mediaObjects.append(mediaObject)
             }
         default:
