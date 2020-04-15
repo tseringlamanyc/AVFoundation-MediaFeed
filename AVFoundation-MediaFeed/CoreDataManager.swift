@@ -21,7 +21,6 @@ class CoreDataManager {
     // NSManagedObjectContext does saving, fetching on NSManagedObjects...
     
     // CRUD
-    
     func createMediaObject(imageData: Data, videoURL: URL?) -> CDMediaObject {
         let mediaObject = CDMediaObject(entity: CDMediaObject.entity(), insertInto: context)
         mediaObject.createdDate = Date() // todays date
